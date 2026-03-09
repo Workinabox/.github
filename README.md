@@ -1,3 +1,3 @@
-# .github
+# Workinabox
 
-The standard .github repo of workinabox
+Workinabox is an agentic system for running companies. It is a collection of agents that work together to achieve the goals of the organization. It consists of a set of agents with various roles, arranged in a hierarchy, performing some vertical work. It could be software development, marketing, sales, operations, etc. The system is packaged as a separate machine you can run on dedicated hardware, virtual machines, containers, or our shipped box. All work starts with a spec, and as such, that's what humans are responsible for: writing specs. The system is responsible for executing on those specs, and reporting back on progress, blockers, and completion. But even spec writing can be assisted by agents. The system is configured using either the web ui, or during voice meetings with agents and other humans.
