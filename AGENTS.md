@@ -10,6 +10,7 @@ workinabox/
   dev/        # the dev CLI (Rust + Ratatui)
   ui/         # the frontend (Leptos/WASM)
   backend/    # the backend service (Rust/Tokio)
+  app/        # the mobile app (React Native/TypeScript)
 ```
 
 Agents should expect this layout. All repos are siblings under the same workspace root, so cross-repo file access is always available.
@@ -22,4 +23,4 @@ When writing or editing Markdown files, always follow MD lint rules — in parti
 
 ## Further Reading
 
-Read `.github/SYSTEM_ARCHITECTURE.md` for details on the repository structure and system design. Read `.github/SOFTWARE_ARCHITECTURE.md` for coding paradigms, crate structure, and testing requirements.
+Read `.github/SYSTEM_ARCHITECTURE.md` for details on the repository structure and system design. Read `.github/SOFTWARE_ARCHITECTURE.md` for coding paradigms, language boundaries, crate structure, and testing requirements.
