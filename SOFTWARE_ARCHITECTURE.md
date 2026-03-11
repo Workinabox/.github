@@ -1,12 +1,15 @@
 # Workinabox — Software Architecture
 
-## Language
+## Languages
 
-All production code is written in Rust.
+Workinabox currently spans Rust and TypeScript:
+
+- `backend`, `dev`, and `ui` are written in Rust.
+- `app` is a React Native mobile client written in TypeScript.
 
 ## Paradigm
 
-Domain-Driven Design (DDD). The domain is the center of gravity. Infrastructure and application concerns are always secondary to a clean, dependency-free domain model.
+Domain-Driven Design (DDD). The backend domain is the center of gravity. Infrastructure and application concerns are always secondary to a clean, dependency-free domain model. User-facing clients should stay thin and align to the backend's domain language and protocol contracts.
 
 ## Crate Structure (backend)
 
@@ -17,6 +20,12 @@ The backend follows a strict three-layer crate split:
 - **`wiab-inf`** — The infrastructure layer. Implements persistence, external APIs, and other I/O. Depends on `wiab-core`. Must not contain business logic.
 
 The root `wiab` binary wires everything together.
+
+## Frontend Structure
+
+- `ui` is the browser and desktop-facing Rust/WASM frontend.
+- `app` is the mobile-facing React Native client.
+- Frontends should avoid embedding business rules that belong in the backend domain. They are responsible for presentation, transport, device integration, and local interaction state.
 
 ## Dependency Rule
 
@@ -33,6 +42,7 @@ wiab (binary) → wiab-inf → wiab-core
 - All code in `wiab-core` must be tested. No exceptions.
 - Code coverage is tracked and enforced in CI.
 - `wiab-app` and `wiab-inf` are tested where practical, but coverage requirements are less strict.
+- Client applications should at minimum keep their build and typecheck paths healthy.
 - Tests live alongside the code they test using Rust's inline `#[cfg(test)]` modules, supplemented by integration tests in `tests/` where appropriate.
 
 ## Error Handling
